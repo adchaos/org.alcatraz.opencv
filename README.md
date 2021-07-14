@@ -38,16 +38,21 @@ Default - all testcases with tags: prositive|negative will be executed.
 Running with gradle wrapper from command line
 To execute the available tests from command line use the following command in the root directory of the project:
 ```
+for Intellij IDE
+    run it from Gradle plugin -> verification -> test
+or for MAC OS
   ./gradlew clean test
   gradle clean test
 ```
 
 ## Test Results
-To view the allure report execute in the terminal:
+To view the allure report:
 
 ```
+for Intellij IDE
+run it from Gradle plugin -> other -> allureServe
+  or for MAC OS
 gradle allure:serve
-#  or
 allure serve build/allure-results
 ```
 
