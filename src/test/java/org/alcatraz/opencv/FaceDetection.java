@@ -40,7 +40,7 @@ public class FaceDetection {
             "4_abba, 4",
             "11_bulgarian_team, 11",
             "18_faces ,18"})
-    public void verifyFaceSize(String pictureName, int expectedNumberFaces) {
+    void verifyFaceSize(String pictureName, int expectedNumberFaces) {
         int actualNumberFaces = detectingFaces(sourcePath + pictureName);
         verifyFaces(actualNumberFaces, expectedNumberFaces, pictureName);
     }
@@ -50,7 +50,7 @@ public class FaceDetection {
     @DisplayName("Negative input for the faceDetection method")
     @Description("Test with empty inputs in order to get readable error messages")
     @ValueSource(strings = {"  ", "\t", "\n"})
-    public void verifyFaceSizeNegative(String picturePath) {
+    void verifyFaceSizeNegative(String picturePath) {
         new DetectFaceDemo().faceDetection(picturePath);
     }
 
@@ -60,7 +60,7 @@ public class FaceDetection {
      * @return the size of the detected faces.
      */
     @Step
-    public int detectingFaces(String pictureName) {
+    int detectingFaces(String pictureName) {
         return new DetectFaceDemo().faceDetection(pictureName);
     }
 
@@ -74,7 +74,7 @@ public class FaceDetection {
      * @param pictureName
      */
     @Step
-    public void verifyFaces(int actualNumberFaces, int expectedNumberFaces, String pictureName) {
+    void verifyFaces(int actualNumberFaces, int expectedNumberFaces, String pictureName) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         File image = new File(sourcePath + pictureName + faceDetectOutput + ".png");
         try {
@@ -98,9 +98,7 @@ public class FaceDetection {
      * @return attached image into the allure report
      */
     @Attachment(value = "Page screenshot {name}", type = "image/png")
-    public byte[] attachScreenshot(byte[] imageResult, String name) {
+    byte[] attachScreenshot(byte[] imageResult, String name) {
         return imageResult;
     }
-
-
 }

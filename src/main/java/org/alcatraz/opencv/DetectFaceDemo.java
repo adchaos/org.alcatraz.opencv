@@ -13,10 +13,10 @@ import org.opencv.core.Scalar;
 
 public class DetectFaceDemo {
 
-    public static String faceDetectOutput = "_facedetect_output";
-    public static String sourcePath = "src/test/resources/";
+    static String faceDetectOutput = "_facedetect_output";
+    static String sourcePath = "src/test/resources/";
 
-    public int faceDetection(String pictureName) {
+    int faceDetection(String pictureName) {
 
         // Loading the OpenCV core library
         OpenCV.loadShared();
